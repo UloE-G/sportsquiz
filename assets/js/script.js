@@ -160,7 +160,7 @@ const questions = [
     /* Check if answer is correct or incorrect */
     if (isCorrect) {
       selectedBtn.classList.add("correct");
-      score++; //Adds 1 to the scored variable
+      score++; //Adds + 1 to the scored variable
     } else {
       selectedBtn.classList.add("incorrect");
     }
