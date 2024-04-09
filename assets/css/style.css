@@ -96,6 +96,17 @@ html {
     margin: 1rem;
   }
   
+  #timer{
+    text-align: end;
+    font-size: 20px;
+    color: crimson;
+    border: 5px solid silver;
+    float: right;
+    border-radius: 20px;
+    padding: 10px;
+    font-weight: bold;
+  }
+  
   .italic {
     font-style: italic;
   }
