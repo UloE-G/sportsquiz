@@ -50,6 +50,56 @@ const questions = [
         { text: "Carlos Alcaraz", correct: true },
       ]
     },
+    {
+        question: "What does the WWE stand for?",
+        image: ["assets/images/wwe.png"],
+        answers: [
+          { text: "Wild West Entertainment", correct: false },
+          { text: "World Wide Entertainment", correct: false },
+          { text: "Wrestling World Entertainment", correct: false },
+          { text: "World Wrestling Entertainment", correct: true },
+        ]
+      },
+      {
+        question: "How many gold medals does Michael Phelps have?",
+        image: ["assets/images/phealps.jpeg"],
+        answers: [
+          { text: "10", correct: false },
+          { text: "23", correct: true },
+          { text: "5", correct: false },
+          { text: "18", correct: false },
+        ]
+      },
+      {
+        question: "What time is the 100m World Record?",
+        image: ["assets/images/100m.jpg"],
+        answers: [
+          { text: "9.58 seconds", correct: true },
+          { text: "9.58 minuets", correct: false },
+          { text: "9.58 hours", correct: false },
+          { text: "9.58 years", correct: false },
+        ]
+      },
+      {
+        question: "In which sport do teams compete to win the Stanley Cup?",
+        image: ["assets/images/stanleycup.jpg"],
+        answers: [
+          { text: "National Basketball League", correct: false },
+          { text: "Premier League", correct: false },
+          { text: "National Hockey League", correct: true },
+          { text: "Diamond League", correct: false },
+        ]
+      },
+      {
+        question: "How many World Balance Beam titles does Simone Biles have?",
+        image: ["assets/images/biles.avif"],
+        answers: [
+          { text: "2", correct: false },
+          { text: "6", correct: false },
+          { text: "4", correct: true },
+          { text: "7", correct: false },
+        ]
+      },
   ];
   
   // Get Id's from HTML
@@ -126,7 +176,30 @@ const questions = [
   /* Display Score */
   function showScore() {
     resetState();
-    question.innerHTML = `You scored ${score} out of ${questions.length}!`;
+    // If score is 10 display pefect
+    if (score == 10) {
+        question.innerHTML = `Nice, You scored ${score} out of ${questions.length} a perfect score!`;
+        image1 = ["assets/images/perfect.jpg"]
+        document.getElementById("image").src = image1;
+
+    // If score is greater than 5 dispaly okay
+    } else if (score >=5) {
+        question.innerHTML = `Okay, You scored ${score} out of ${questions.length}!`;
+        image2 = ["assets/images/thumbsup.png"]
+        document.getElementById("image").src = image2;
+    
+    // If score is less than 0 display terrible
+    } else if (score == 0) {
+        question.innerHTML = `TERRIBLE!!!, You scored ${score} out of ${questions.length}!`;
+        image4 = ["assets/images/angry.jpg"]
+        document.getElementById("image").src = image4;
+    
+    // If score is not in any of the other categories display not good
+    } else {
+        question.innerHTML = `Not Good, You scored ${score} out of ${questions.length}!`;
+        image5 = ["assets/images/thumbsdown.png"]
+        document.getElementById("image").src = image5;
+    };
     next.innerHTML = "Try Again";
     next.style.display = "block";
   }
