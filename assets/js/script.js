@@ -107,11 +107,35 @@ const questions = [
   const images = document.getElementById("image");
   const answerButtons = document.getElementById("answer-buttons");
   const next = document.getElementById("next");
+  const timer = document.getElementById("timer");
   
+
   // Set up variables
   let currentQuestion = 0;
   let pics = 0;
   let score = 0;
+
+  const startingMinuets = 10;
+  let time = startingMinuets * 30;
+
+  let refresh = setInterval(updateTimer, 1000); // Update every 1 second
+
+  function updateTimer() {
+    const minuets = Math.floor(time / 60); // Rounds number down to the nearest integer
+    let seconds = time % 60;
+
+    seconds = seconds < 10 ? '0' +seconds : seconds;
+
+    timer.innerHTML = `${minuets}:${seconds}`;
+    
+    time--;
+    
+    time = time < 0 ? 0:time;
+
+    if (minuets <= 0 && seconds <= 0){
+      showScore();
+    }
+  }
   
   
   function startQuiz() {
