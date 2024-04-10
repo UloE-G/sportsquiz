@@ -102,148 +102,152 @@ const questions = [
       },
   ];
   
-  // Get Id's from HTML
-  const question = document.getElementById("question");
-  const images = document.getElementById("image");
-  const answerButtons = document.getElementById("answer-buttons");
-  const next = document.getElementById("next");
-  const timer = document.getElementById("timer");
+// Get Id's from HTML
+const question = document.getElementById("question");
+const images = document.getElementById("image");
+const answerButtons = document.getElementById("answer-buttons");
+const next = document.getElementById("next");
+const timer = document.getElementById("timer");
   
 
-  // Set up variables
-  let currentQuestion = 0;
-  let pics = 0;
-  let score = 0;
+// Set up variables
+let currentQuestion = 0;
+let pics = 0;
+let score = 0;
 
-  const startingMinuets = 10;
-  let time = startingMinuets * 30;
+const startingMinuets = 10;
+let time = startingMinuets * 30;
 
-  let refresh = setInterval(updateTimer, 1000); // Update every 1 second
+let refresh = setInterval(updateTimer, 1000); // Update every 1 second
 
-  function updateTimer() {
-    const minuets = Math.floor(time / 60); // Rounds number down to the nearest integer
-    let seconds = time % 60;
+/* Creats timer */ 
+function updateTimer() {
+  const minuets = Math.floor(time / 60); // Rounds number down to the nearest integer
+  let seconds = time % 60;
 
-    seconds = seconds < 10 ? '0' +seconds : seconds;
+  seconds = seconds < 10 ? '0' +seconds : seconds;
 
-    timer.innerHTML = `${minuets}:${seconds}`;
-    
-    time--;
-    
-    time = time < 0 ? 0:time;
+  timer.innerHTML = `${minuets}:${seconds}`;
+  
+  time--;
+  
+  time = time < 0 ? 0:time;
 
-    if (minuets <= 0 && seconds <= 0){
-      showScore();
-    }
+  // End quiz once time is finished
+  if (minuets <= 0 && seconds <= 0){
+    showScore();
   }
+}
+
+/* Start Quiz */
+function startQuiz() {
+  currentQuestion = 0;
+  pics = 0;
+  score = 0;
+  next.innerHTML = "Next";
+  showQuestion();
+}
+
+/* Show Question */
+function showQuestion() {
+  resetState()
+  let questionNow = questions[currentQuestion];
+  let questionNum = currentQuestion + 1;
+  question.innerHTML = questionNum + ". " + questionNow.question;
+
+  /* Show image */
+  document.getElementById("image").src = questionNow.image[pics];
+
+  /* Show Answers */
+  questionNow.answers.forEach(answer => {
+    const button = document.createElement("button");
+    button.innerHTML = answer.text;
+    button.classList.add("btn");
+    answerButtons.appendChild(button);
+    if (answer.correct) {
+      button.dataset.correct = answer.correct;
+    }
+    button.addEventListener("click", selectAnswer);
+  });
+}
+
+/* Reset previous Questions and Answers */
+function resetState() {
+  next.style.display = "none";
+  while (answerButtons.firstChild) {
+    answerButtons.removeChild(answerButtons.firstChild);
+  }
+}
+
+/* Checks if user inputed answer is correct */
+function selectAnswer(e) {
+  const selectedBtn = e.target;
+  const isCorrect = selectedBtn.dataset.correct === "true";
+  /* Check if answer is correct or incorrect */
+  if (isCorrect) {
+    selectedBtn.classList.add("correct");
+    score++; //Adds + 1 to the scored variable
+  } else {
+    selectedBtn.classList.add("incorrect");
+  }
+  Array.from(answerButtons.children).forEach(button => {
+    if (button.dataset.correct === "true") {
+      button.classList.add("correct");
+    }
+    button.disabled = true;
+  });
+  next.style.display = "block";
+}
+
+/* Display Score */
+function showScore() {
+  resetState();
+  // If score is 10 display pefect score
+  if (score == 10) {
+      question.innerHTML = `Nice, You scored ${score} out of ${questions.length} a perfect score!`;
+      image1 = ["assets/images/perfect.jpg"]
+      document.getElementById("image").src = image1;
+
+  // If score is greater than 5 dispaly okay score
+  } else if (score >=5) {
+      question.innerHTML = `Okay, You scored ${score} out of ${questions.length}!`;
+      image2 = ["assets/images/thumbsup.png"]
+      document.getElementById("image").src = image2;
   
+  // If score is less than 0 display terrible score
+  } else if (score == 0) {
+      question.innerHTML = `TERRIBLE!!!, You scored ${score} out of ${questions.length}!`;
+      image4 = ["assets/images/angry.jpg"]
+      document.getElementById("image").src = image4;
   
-  function startQuiz() {
-    currentQuestion = 0;
-    pics = 0;
-    score = 0;
-    next.innerHTML = "Next";
+  // If score is not in any of the other categories display not good score
+  } else {
+      question.innerHTML = `Not Good, You scored ${score} out of ${questions.length}!`;
+      image5 = ["assets/images/thumbsdown.png"]
+      document.getElementById("image").src = image5;
+  };
+  next.innerHTML = "Try Again";
+  next.style.display = "block";
+  clearInterval(refresh);
+}
+
+/* Go to next Question  */
+function handleNextButton() {
+  currentQuestion++;
+  if (currentQuestion < questions.length) {
     showQuestion();
+  } else {
+    showScore();
   }
-  
-  /* Show Question */
-  function showQuestion() {
-    resetState()
-    let questionNow = questions[currentQuestion];
-    let questionNum = currentQuestion + 1;
-    question.innerHTML = questionNum + ". " + questionNow.question;
-  
-    /* Show image */
-    document.getElementById("image").src = questionNow.image[pics];
-  
-    /* Show Answers */
-    questionNow.answers.forEach(answer => {
-      const button = document.createElement("button");
-      button.innerHTML = answer.text;
-      button.classList.add("btn");
-      answerButtons.appendChild(button);
-      if (answer.correct) {
-        button.dataset.correct = answer.correct;
-      }
-      button.addEventListener("click", selectAnswer);
-    });
-  }
-  
-  /* Reset previous Questions and Answers */
-  function resetState() {
-    next.style.display = "none";
-    while (answerButtons.firstChild) {
-      answerButtons.removeChild(answerButtons.firstChild);
-    }
-  }
-  
-  /* Checks if user inputed answer is correct */
-  function selectAnswer(e) {
-    const selectedBtn = e.target;
-    const isCorrect = selectedBtn.dataset.correct === "true";
-    /* Check if answer is correct or incorrect */
-    if (isCorrect) {
-      selectedBtn.classList.add("correct");
-      score++; //Adds + 1 to the scored variable
-    } else {
-      selectedBtn.classList.add("incorrect");
-    }
-    Array.from(answerButtons.children).forEach(button => {
-      if (button.dataset.correct === "true") {
-        button.classList.add("correct");
-      }
-      button.disabled = true;
-    });
-    next.style.display = "block";
-  }
-  
-  /* Display Score */
-  function showScore() {
-    resetState();
-    // If score is 10 display pefect
-    if (score == 10) {
-        question.innerHTML = `Nice, You scored ${score} out of ${questions.length} a perfect score!`;
-        image1 = ["assets/images/perfect.jpg"]
-        document.getElementById("image").src = image1;
+}
 
-    // If score is greater than 5 dispaly okay
-    } else if (score >=5) {
-        question.innerHTML = `Okay, You scored ${score} out of ${questions.length}!`;
-        image2 = ["assets/images/thumbsup.png"]
-        document.getElementById("image").src = image2;
-    
-    // If score is less than 0 display terrible
-    } else if (score == 0) {
-        question.innerHTML = `TERRIBLE!!!, You scored ${score} out of ${questions.length}!`;
-        image4 = ["assets/images/angry.jpg"]
-        document.getElementById("image").src = image4;
-    
-    // If score is not in any of the other categories display not good
-    } else {
-        question.innerHTML = `Not Good, You scored ${score} out of ${questions.length}!`;
-        image5 = ["assets/images/thumbsdown.png"]
-        document.getElementById("image").src = image5;
-    };
-    next.innerHTML = "Try Again";
-    next.style.display = "block";
+// Function for the next button
+next.addEventListener("click", () => {
+  if (currentQuestion < questions.length) {
+    handleNextButton();
+  } else {
+    startQuiz();
   }
-  
-  /* Go to next Question  */
-  function handleNextButton() {
-    currentQuestion++;
-    if (currentQuestion < questions.length) {
-      showQuestion();
-    } else {
-      showScore();
-    }
-  }
-  
-  next.addEventListener("click", () => {
-    if (currentQuestion < questions.length) {
-      handleNextButton();
-    } else {
-      startQuiz()
-    }
-  })
-  
-  startQuiz();
+})
+
+startQuiz();
