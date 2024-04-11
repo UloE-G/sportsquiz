@@ -115,12 +115,23 @@ let currentQuestion = 0;
 let pics = 0;
 let score = 0;
 
-const startingMinuets = 10;
-let time = startingMinuets * 30;
-
 let refresh = setInterval(updateTimer, 1000); // Update every 1 second
 
-/* Creats timer */ 
+/* Start Quiz */
+function startQuiz() {
+  currentQuestion = 0;
+  pics = 0;
+  score = 0;
+  next.innerHTML = "Next";
+  showQuestion();
+}
+
+
+
+/* Creates Timer */ 
+const startingMinuets = 10;
+let time = startingMinuets * 2;
+
 function updateTimer() {
   const minuets = Math.floor(time / 60); // Rounds number down to the nearest integer
   let seconds = time % 60;
@@ -139,18 +150,15 @@ function updateTimer() {
   }
 }
 
-/* Start Quiz */
-function startQuiz() {
-  currentQuestion = 0;
-  pics = 0;
-  score = 0;
-  next.innerHTML = "Next";
-  showQuestion();
+/* Resets Timer */
+function resetTimer() {
+  clearInterval(refresh);
+  updateTimer();
 }
 
 /* Show Question */
 function showQuestion() {
-  resetState()
+  resetState();
   let questionNow = questions[currentQuestion];
   let questionNum = currentQuestion + 1;
   question.innerHTML = questionNum + ". " + questionNow.question;
@@ -202,6 +210,7 @@ function selectAnswer(e) {
 /* Display Score */
 function showScore() {
   resetState();
+  clearInterval(refresh);
   // If score is 10 display pefect score
   if (score == 10) {
       question.innerHTML = `Nice, You scored ${score} out of ${questions.length} a perfect score!`;
@@ -228,7 +237,6 @@ function showScore() {
   };
   next.innerHTML = "Try Again";
   next.style.display = "block";
-  clearInterval(refresh);
 }
 
 /* Go to next Question  */
@@ -247,6 +255,7 @@ next.addEventListener("click", () => {
     handleNextButton();
   } else {
     startQuiz();
+    
   }
 })
 
