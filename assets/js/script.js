@@ -104,7 +104,6 @@ const questions = [
   
 // Get Id's from HTML
 const question = document.getElementById("question");
-const images = document.getElementById("image");
 const answerButtons = document.getElementById("answer-buttons");
 const next = document.getElementById("next");
 const timer = document.getElementById("timer");
@@ -115,8 +114,6 @@ let currentQuestion = 0;
 let pics = 0;
 let score = 0;
 
-let refresh = setInterval(updateTimer, 1000); // Update every 1 second
-
 /* Start Quiz */
 function startQuiz() {
   currentQuestion = 0;
@@ -126,11 +123,11 @@ function startQuiz() {
   showQuestion();
 }
 
-
-
 /* Creates Timer */ 
 const startingMinuets = 10;
 let time = startingMinuets * 2;
+
+let refresh = setInterval(updateTimer, 1000); // Update every 1 second
 
 function updateTimer() {
   const minuets = Math.floor(time / 60); // Rounds number down to the nearest integer
@@ -214,27 +211,27 @@ function showScore() {
   // If score is 10 display pefect score
   if (score == 10) {
       question.innerHTML = `Nice, You scored ${score} out of ${questions.length} a perfect score!`;
-      image1 = ["assets/images/perfect.jpg"]
+      image1 = ["assets/images/perfect.jpg"];
       document.getElementById("image").src = image1;
 
   // If score is greater than 5 dispaly okay score
   } else if (score >=5) {
       question.innerHTML = `Okay, You scored ${score} out of ${questions.length}!`;
-      image2 = ["assets/images/thumbsup.png"]
+      image2 = ["assets/images/thumbsup.png"];
       document.getElementById("image").src = image2;
   
   // If score is less than 0 display terrible score
   } else if (score == 0) {
       question.innerHTML = `TERRIBLE!!!, You scored ${score} out of ${questions.length}!`;
-      image4 = ["assets/images/angry.jpg"]
+      image4 = ["assets/images/angry.jpg"];
       document.getElementById("image").src = image4;
   
   // If score is not in any of the other categories display not good score
   } else {
       question.innerHTML = `Not Good, You scored ${score} out of ${questions.length}!`;
-      image5 = ["assets/images/thumbsdown.png"]
+      image5 = ["assets/images/thumbsdown.png"];
       document.getElementById("image").src = image5;
-  };
+  }
   next.innerHTML = "Try Again";
   next.style.display = "block";
 }
@@ -255,8 +252,7 @@ next.addEventListener("click", () => {
     handleNextButton();
   } else {
     startQuiz();
-    
   }
-})
+});
 
 startQuiz();
