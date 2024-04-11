@@ -232,8 +232,6 @@ function showScore() {
       image5 = ["assets/images/thumbsdown.png"];
       document.getElementById("image").src = image5;
   }
-  next.innerHTML = "Try Again";
-  next.style.display = "block";
 }
 
 /* Go to next Question  */
