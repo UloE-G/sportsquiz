@@ -125,7 +125,7 @@ function startQuiz() {
 
 /* Creates Timer */ 
 const startingMinuets = 10;
-let time = startingMinuets * 2;
+let time = startingMinuets * 6;
 
 let refresh = setInterval(updateTimer, 1000); // Update every 1 second
 
