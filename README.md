@@ -30,3 +30,43 @@ This section goes over the different parts of this project. An explanation will 
   -It has a total of 10 questions.
 
 ![Question Example](assets/images/question.png)
+
+  - __Images__
+
+    -Each question has a image with it.
+
+    -The image is there to help the user get a visual understanding of the question if the words alone cannot help.
+
+![Question Image Example](assets/images/image.png) 
+
+  - __Answers__
+
+    -This part is where the answers to the question given are.
+
+    -The user is given 4 different answers, with only 1 of them being the right answer.
+
+    -When a user clicks on a answer the text will either turn red or green.
+
+    -If the text turns red that is a sign of an incorrect answer.
+
+    -If the text turns Green that is a sign of an correct answer.
+
+![Question Answer Example](assets/images/answer.png)
+
+  - __Countdown__
+  
+    -The Countdown is used to give the user a challenge while taking the quiz.
+
+    -The countdown automatically starts when the page is loaded.
+
+    -When the time reaches zero, the quiz ends and the users score is shown, regardless if they have finished all 10 questions or not.
+
+![Countdown](assets/images/timer.png)
+
+## Testing
+
+ - I tested to see if the website would work on Google Chrome, Microsoft Edge and Firefox.
+
+ - The website was able to function as intended and that the it was responsive.
+
+ - The Question
