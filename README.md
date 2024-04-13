@@ -69,4 +69,16 @@ This section goes over the different parts of this project. An explanation will 
 
  - The website was able to function as intended and that the it was responsive.
 
- - The Question
+ - The Questions all loaded in the correct position with the correct picture.
+
+### Validator Testing
+
+
+- HTML
+  - No errors were found when passing through the offiacl [(Jigsaw) validator](https://validator.w3.org/).
+  
+- CSS
+  - No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/validator).
+
+- JavaScript
+  - 
