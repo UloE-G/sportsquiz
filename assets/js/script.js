@@ -147,12 +147,6 @@ function updateTimer() {
   }
 }
 
-/* Resets Timer */
-function resetTimer() {
-  clearInterval(refresh);
-  updateTimer();
-}
-
 /* Show Question */
 function showQuestion() {
   resetState();
