@@ -59,6 +59,10 @@ This section goes over the different parts of this project. An explanation will 
 
     -This button only pops up when an answer is picked.
 
+    -Once clicked it takes the user to the next question.
+
+![Next Button](assets/images/next.png)
+
   - __Countdown__
   
     -The Countdown is used to give the user a challenge while taking the quiz.
