@@ -53,6 +53,12 @@ This section goes over the different parts of this project. An explanation will 
 
 ![Question Answer Example](assets/images/answer.png)
 
+  - __Next__
+
+    -The next button is used to move through the quiz.
+
+    -This button only pops up when an answer is picked.
+
   - __Countdown__
   
     -The Countdown is used to give the user a challenge while taking the quiz.
@@ -72,6 +78,10 @@ This section goes over the different parts of this project. An explanation will 
  - The Questions all loaded in the correct position with the correct picture.
 
  - When an answer was clicked on the website was able to determine if it was correct or incorrect by highlighting the wrong answer in red (if it was wrong) and the right answer in green.
+
+ - After an answer is clicked, the next button pops up on time and response correctly by showing the next question.
+
+ - When the timer reaches zero the it instantly shows the score and correctly tallys up the correct answers.
 
 ### Validator Testing
 
@@ -130,7 +140,7 @@ This section goes over the different parts of this project. An explanation will 
 
 - The Simone Biles photo was found on [Slate.com](https://slate.com/culture/2023/08/simone-biles-gymnastics-return-classic-vault-comeback.html).
 
-- The All-Ireland Trophy photo was found on [The Irish Sun](https://www.thesun.ie/sport/gaa-football/9124007/kerry-galway-all-ireland-football-final-tv-stream-time/)
+- The All-Ireland Trophy photo was found on [The Irish Sun](https://www.thesun.ie/sport/gaa-football/9124007/kerry-galway-all-ireland-football-final-tv-stream-time/).
 
 - The sports quiz logo was found on [Facebook](https://www.facebook.com/sports.quizz/?paipv=0&eav=AfaAWgAhYNHbALoMg6S5-QzGZKYOwDSS32ldIRjauoGhVamwiI6BA5mLFhS32yGRbpY&_rdr).
 
