@@ -125,7 +125,7 @@ function startQuiz() {
 
 /* Creates Timer */ 
 const startingMinuets = 10;
-let time = startingMinuets * 6;
+let time = startingMinuets * 9;
 
 let refresh = setInterval(updateTimer, 1000); // Update every 1 second
 
@@ -154,10 +154,10 @@ function showQuestion() {
   let questionNum = currentQuestion + 1;
   question.innerHTML = questionNum + ". " + questionNow.question;
 
-  /* Show image */
+  // Show image 
   document.getElementById("image").src = questionNow.image[pics];
 
-  /* Show Answers */
+  // Show Answers
   questionNow.answers.forEach(answer => {
     const button = document.createElement("button");
     button.innerHTML = answer.text;
