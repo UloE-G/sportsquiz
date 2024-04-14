@@ -87,6 +87,7 @@ span {
 
 #next:hover {
   background-color: darkgreen;
+  color:white; 
 }
 
 #image {
