@@ -73,6 +73,30 @@ This section goes over the different parts of this project. An explanation will 
 
 ![Countdown](assets/images/timer.png)
 
+  - __Score Section__
+
+    -This part displays after the user finishes all 10 questions, or when the countdown reaches zero.
+
+    -It tallys up all the correct answers and shows how many you got correct out of 10.
+
+    -Depending on how many the user gets correct a different image will pop up.
+
+      - If they got a 10/10 an image with a perfect score will show.
+
+      ![perfect Score](assets/images/perfectscore.png)
+
+      - If the user get between 5-9/10 an emoji with the thumbs up will be displayed.
+
+      ![Okay Score](assets/images/thumbsupscore.png)
+
+      - If the user get between 2-4/10 an emoji with the thumbs down will be displayed.
+
+      ![Not Good Score](assets/images/thumbsdownscore.png)
+
+      - If the user got 0/10 an angry emoji will be shown. 
+
+      ![Terrible Score!](assets/images/angryscore.png)
+
 ## Testing
 
  - I tested to see if the website would work on Google Chrome, Microsoft Edge and Firefox.
