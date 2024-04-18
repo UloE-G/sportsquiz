@@ -126,7 +126,7 @@ This section goes over the different parts of this project. An explanation will 
 
 - JavaScript
 
-  - The JavaScript was passed through [JSHint.com](https://jshint.com/) where it detected 26 warnings and 4 undefined variables.
+  - The JavaScript was passed through [JSHint.com](https://jshint.com/) where it detected 26 warnings.
 
 - Accessibility
 
