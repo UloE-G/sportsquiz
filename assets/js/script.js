@@ -2,7 +2,7 @@
 const questions = [
     {
       question: "What is the name of the NBA championship trophy?",
-      image: ["assets/images/NBATrophy.avif"],
+      image: ["assets/images/nbatrophy.avif"],
       answers: [
         { text: "Larry O' Brien", correct: true },
         { text: "James Naismith", correct: false },
@@ -32,7 +32,7 @@ const questions = [
     },
     {
       question: "Which county has the most All-Ireland Senior Football Championship?",
-      image: ["assets/images/GAA.jpeg"],
+      image: ["assets/images/gaa.jpeg"],
       answers: [
         { text: "Dublin", correct: false },
         { text: "Kerry", correct: true },
@@ -199,6 +199,10 @@ function selectAnswer(e) {
 }
 
 /* Display Score */
+var image1;
+var image2;
+var image3; 
+var image4;
 function showScore() {
   resetState();
   clearInterval(refresh);
@@ -217,14 +221,14 @@ function showScore() {
   // If score is less than 0 display terrible score
   } else if (score == 0) {
       question.innerHTML = `TERRIBLE!!!, You scored ${score} out of ${questions.length}!`;
-      image4 = ["assets/images/angry.jpg"];
-      document.getElementById("image").src = image4;
+      image3 = ["assets/images/angry.jpg"];
+      document.getElementById("image").src = image3;
   
   // If score is not in any of the other categories display not good score
   } else {
       question.innerHTML = `Not Good, You scored ${score} out of ${questions.length}!`;
-      image5 = ["assets/images/thumbsdown.png"];
-      document.getElementById("image").src = image5;
+      image4 = ["assets/images/thumbsdown.png"];
+      document.getElementById("image").src = image4;
   }
 }
 
