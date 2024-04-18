@@ -111,6 +111,8 @@ This section goes over the different parts of this project. An explanation will 
 
  - When the timer reaches zero the it instantly shows the score and correctly tallys up the correct answers.
 
+ - I let my family members try the quiz to find a realistic time that would be necessary to finish the quiz.
+
 ### Validator Testing
 
 
