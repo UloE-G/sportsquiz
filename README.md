@@ -2,6 +2,8 @@
 
 This is a quiz website for people who want are intrerested in sports and want to challenge themselves to a fun interactive quiz. The question come from a varity of sports like basketball, football, gymnastics, track and many more. It also has a timer and a score system to add more stakes and enjoyment in the website.
 
+[View live project here](https://uloe-g.github.io/sportsquiz/).
+
 ![Sports Quiz mockup](assets/images/sportsquiz.png)
 
 ## Features
@@ -147,11 +149,11 @@ This section goes over the different parts of this project. An explanation will 
 
 ### Content
 
-- The video used to help me create the quiz was from [here](https://www.youtube.com/watch?v=PBcqGxrr9g8&t=1825s).
+- The video used to help me create the quiz was from on youtube by [GreatStack](https://www.youtube.com/watch?v=PBcqGxrr9g8&t=1825s).
 
-- The video used to help me create a timer was found [here](https://www.youtube.com/watch?v=x7WJEmxNlEs&t=1s).
+- The video used to help me create a timer was found on youtube by [Florin Pop](https://www.youtube.com/watch?v=x7WJEmxNlEs&t=1s).
 
-- The video used to help me stop the timer was found [here](https://www.youtube.com/watch?v=JRevaOwNKTI).
+- The video used to help me stop the timer was found on youtube by [codeSTACKr](https://www.youtube.com/watch?v=JRevaOwNKTI).
 
 ### Media
 - The angry emoji was taken from [Adobe Stock](https://stock.adobe.com/search?k=angry+emoji).
